@@ -23,7 +23,7 @@ public class Cleaning {
     private void cleaning(int row, int col, VacuumCleaner vacuumCleaner, Room room, int arrow) {
         String data = row + " " + col;
 
-        if (!cleaned.contains(data)) {
+        if (!cleaned.contains(data) && vacuumCleaner.move(row, col, room.getHeight(), room.getWidth(), testRoom.getRoomLayout())) {
             cleaned.add(data);
 
             vacuumCleaner.clean(row, col);
@@ -39,6 +39,24 @@ public class Cleaning {
             }
         }
         goBack(vacuumCleaner);
+
+        if ((occupiedAreas(layout) - cleaned.size()) > 0) {
+            room.setClean(false);
+        } else
+            room.setClean(true);
+
+    }
+
+    private int occupiedAreas(int[][] layout) {
+        int counter = 0;
+        for (int i = 0; i < layout.length; i++) {
+            for (int j = 0; j < layout[i].length; j++) {
+                if (layout[j][i] == 0) {
+                    counter++;
+                }
+            }
+        }
+        return testRoom.getFullRoom() - counter;
     }
 
     private void goBack(VacuumCleaner vacuumCleaner) {
