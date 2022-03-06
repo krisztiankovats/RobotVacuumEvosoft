@@ -43,7 +43,7 @@ public class VacuumCleaner {
     }
 
     public void turnRight(VacuumCleaner vacuumCleaner) {
-        vacuumCleaner.setDirections(Directions.BACK);
+        vacuumCleaner.setDirections(Directions.RIGHT);
     }
 
     public void clean(int row, int col) {
