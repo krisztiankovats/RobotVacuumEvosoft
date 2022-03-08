@@ -35,7 +35,11 @@ public class VacuumCleaner {
     }
 
     public boolean move(int row, int col, int height, int width, int[][] layout) {
-        return height > row && width > col && col >= 0 && row >= 0 && layout[row][col] != 0;
+        return height > col
+                && width > row
+                && col >= 0
+                && row >= 0
+                && layout[row][col] != 0;
     }
 
     public void turnLeft(VacuumCleaner vacuumCleaner) {
