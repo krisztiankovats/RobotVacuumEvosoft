@@ -12,7 +12,7 @@ public class Room {
     public Room(int height, int width, int[][] roomLayout) {
         this.height = height;
         this.width = width;
-        this.fullRoom = setSquareMeter();
+        this.fullRoom = allAreasInTheRoom();
         this.roomLayout = roomLayout;
     }
 
@@ -36,7 +36,7 @@ public class Room {
         return fullRoom;
     }
 
-    public int setSquareMeter() {
+    public int allAreasInTheRoom() {
         return this.fullRoom = this.height * this.width;
     }
 
